@@ -10,7 +10,7 @@ const Choice = ({ fruit, onClick }) => {
     <div className="bg-slate-lightest bg-opacity-20 w-48 aspect-square m-4 rounded-sm hover:bg-opacity-30 hover:-translate-y-4 transition-all p-4" onClick={onClick}>
       {fruit ?
         <>
-          <p className="text-white text-lg text-center">{fruit.name} ({Math.round(fruit.rating)})</p>
+          <p className="text-white text-lg text-center">{fruit.name}o ({Math.round(fruit.rating)})</p>
           <div className="">
             <img alt="Picture" src={fruit.pic} className="w-full h-full object-cover" />
           </div>
