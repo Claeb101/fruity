@@ -41,13 +41,7 @@ export const Layout: FC<any> = ({ dim=false, children }) => {
                 /> */}
             </Head>
 
-            <div className='relative w-full m-0 h-screen'>
-                {/* <Background className={dim ? "opacity-25" : 'opacity-100'}/> */}
-                <main className='relative w-full min-h-screen bg-transparent'>
-                    {children}
-                    {/* <Footer/> */}
-                </main>
-            </div>
+            {children}
         </>
     );
 }
