@@ -7,6 +7,7 @@ import { Layout } from "@/components/layout";
 import { read } from "fs";
 import Background from "@/components/Background"
 import Canvas from "@/components/Canvas";
+import { Footer } from "@/components/footer";
 
 const Choice = ({ fruit, onClick = () => null, reactive = true }) => {
   return (
@@ -14,12 +15,7 @@ const Choice = ({ fruit, onClick = () => null, reactive = true }) => {
       {fruit ?
         <>
           <p className="text-white text-lg text-center">{fruit.name} ({Math.round(fruit.rating)})</p>
-          <div className="relative flex-1">
-            <div className="absolute inset-0 flex justify-center items-center">
-              <img alt="Picture" src={fruit.pic} className="block h-full object-contain" />
-            </div>
-          </div>
-
+          <div className="flex-1 bg-contain bg-no-repeat bg-center" style={{backgroundImage: `url("${fruit.pic}")`}}/>
         </>
         :
         <></>
@@ -119,7 +115,7 @@ const Home: NextPage<any> = ({ officers }) => {
             <h1 className="text-white text-3xl font-bold animate-bounce">Fruity!</h1>
             <Voter />
           </div>
-          {/* <Footer/> */}
+          <Footer/>
         </main>
         {/* <InteractiveCanvas /> */}
       </div>
