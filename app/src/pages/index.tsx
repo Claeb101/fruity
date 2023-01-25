@@ -14,9 +14,12 @@ const Choice = ({ fruit, onClick = () => null, reactive = true }) => {
       {fruit ?
         <>
           <p className="text-white text-lg text-center">{fruit.name} ({Math.round(fruit.rating)})</p>
-          <div className="relative flex-1 flex justify-center items-center">
-            <img alt="Picture" src={fruit.pic} className="block w-32 object-cover" />
+          <div className="relative flex-1">
+            <div className="absolute inset-0 flex justify-center items-center">
+              <img alt="Picture" src={fruit.pic} className="block h-full object-contain" />
+            </div>
           </div>
+
         </>
         :
         <></>
@@ -31,6 +34,8 @@ const Voter = () => {
   const [ready, setReady] = useState<{ status: boolean, time: Date }>({ status: false, time: null })
 
   const choose = async (ind) => {
+    if(!ready.status) return;
+
     setReady({ status: false, time: new Date() })
     const options = {
       headers: {
