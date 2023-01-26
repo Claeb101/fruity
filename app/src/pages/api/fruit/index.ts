@@ -10,21 +10,12 @@ const elo = (r1, r2) => {
   return {r1: r1+k*(1-expect(r1, r2)), r2: r2+k*(0-expect(r2, r1))}
 }
 
-const rndrng = (l, r) => {
-  l = Math.ceil(l)
-  r = Math.floor(r)
-  return Math.floor(Math.random()*(r-l)+l);
-}
-
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     if(req.method == 'GET'){
       const fruits = await db.fruit.findMany({});
-      const i = rndrng(0, fruits.length)
-      let j = -1
-      while(j < 0 || j == i) j = rndrng(0, fruits.length)
 
-      return res.status(200).json({fruit1: fruits[i], fruit2: fruits[j]})
+      return res.status(200).json({fruits})
     } else if (req.method == 'PUT') {
       let f1 = await db.fruit.findUnique({where: {name: req.body.winner}})
       let f2 = await db.fruit.findUnique({where: {name: req.body.loser}})
@@ -36,7 +27,8 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       const fruit = await db.fruit.create({
         data: {
           name: req.body.name,
-          pic: req.body.pic
+          pic: req.body.pic,
+          price: req.body.price
         }
       })
       return res.status(200).json({fruit})    

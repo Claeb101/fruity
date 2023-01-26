@@ -18,4 +18,5 @@ model Fruit {
   name String @unique
   rating Float @default(1200)
   pic String
+  price Float @default(1.00)
 }
