@@ -11,6 +11,7 @@ import { Footer } from "@/components/footer";
 import {
   Chart as ChartJS,
   CategoryScale,
+  ScatterController,
   LinearScale,
   PointElement,
   LineElement,
@@ -114,7 +115,7 @@ const InteractiveCanvas = ({pos=[null, null]}) => {
   );
 }
 
-ChartJS.register(LinearScale, CategoryScale, PointElement, LineElement, Tooltip, Legend);
+ChartJS.register(LinearScale, CategoryScale, ScatterController, PointElement, LineElement, Tooltip, Legend);
 ChartJS.defaults.font.family = 'Inter'
 
 const rndrng = (l, r) => {
