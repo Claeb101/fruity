@@ -255,6 +255,7 @@ const Graph = () => {
           </div>
         : null
       }
+      <p className="text-white text-xs text-center">*Data primarily collected from USDA. Retail price estimates for foreign fruits may be innacurate.</p>
     </div>
   );
 }
