@@ -1,6 +1,4 @@
-# TJVMT
-A dynamic website for TJVMT. 
-
+# Fruity
 ## Development
 Local development does NOT work on FCPS wifi. Use a hotspot if you want to work in school.
 
